@@ -8,7 +8,16 @@
     <!-- jQuery library reference. Latest is always referenced from jQuery's CDN. -->
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script>
-		// WRITE YOUR CODE HERE
+		$(() => {
+            $.get("team.xml", function(data){
+                $(data).find('teammember').each(function () {
+                    let x = $(this).find('name').text();
+                    let y = $(this).find('title').text();
+                    let z = $(this).find('bio').text();
+                    $('#team').append('<h4>'+x+'<br>'+y+'</h4>').append('<p>'+z+'</p><br>');
+                });
+            });
+        });
     </script>
 </head>
 

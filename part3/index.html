@@ -8,7 +8,15 @@
     <!-- jQuery library reference. Latest is always referenced from jQuery's CDN. -->
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script>
-		// WRITE YOUR CODE HERE
+		$(() => {
+            $.getJSON("team.json", function(j){
+                $.each(j, function () {
+                    $.each(this, function(i, data){
+                        $('#result').append('<h4>'+data.name+'<br>'+data.title+'</h4>').append('<p>'+data.bio+'</p><br>');
+                    });
+                });     
+            });
+        });
     </script>
 </head>
 
